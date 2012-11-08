@@ -1,0 +1,6 @@
+*.pem
+*.swo
+*.swp
+*~
+.DS_Store
+.chef/checksums
