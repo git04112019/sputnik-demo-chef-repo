@@ -25,12 +25,12 @@ Demo
 1.  Configure the Sputnik laptop for lxc and apt-cacher-ng with the `sputnik-base` Role.
 1.  Launch an `haproxy` node on lxc in the `sputnik` Environment.
 1.  Launch 2 `demo-app` nodes on lxc in the `sputnik` Environment.
-1.  knife ssh "role:haproxy" "chef-client" -E sputnik
+1.  knife ssh "role:haproxy AND chef_environment:sputnik" "chef-client"
 1.  Connect to the `haproxy` node in `sputnik` on port 22002 to see the web UI console.
 1.  Connect to the `haproxy` node in `sputnik` on port 80 to see the `demo-app`, refresh a couple of times.
 1.  Launch an `haproxy` node in the cloud in the `production` Environment.
 1.  Launch 2 `demo-app` nodes in the cloud in the `production` Environment.
-1.  knife ssh "role:haproxy" "chef-client" -E production
+1.  knife ssh "role:haproxy AND chef_environment:production" "chef-client"
 1.  Connect to the `haproxy` node in `production` on port 22002 to see the web UI console.
 1.  Connect to the `haproxy` node in `production` on port 80 to see the `demo-app`, refresh a couple of times.
 1.  Bump up the version number of the `demo-app` cookbook in the `metadata.rb`.
@@ -40,11 +40,11 @@ Demo
 1.  Connect to the `haproxy` node in `production` on port 80 to see the `demo-app`, refresh a couple of times. Nothing happens because we pinned the cookbook version.
 1.  Update the `sputnik` environment to use the new version of the `demo-app` cookbook.
 1.  knife environment from file sputnik.rb
-1.  knife ssh "recipe:demo-app" "chef-client" -E sputnik
+1.  knife ssh "recipe:demo-app AND chef_environment:sputnik" "chef-client"
 1.  Connect to the `haproxy` node in `sputnik` on port 80 to see the new `demo-app`, refresh a couple of times.
 1.  Fire up 10 more `demo-app` boxes in the `production` environment.
 1.  Update the `sputnik` environment to use the new version of the `demo-app` cookbook.
-1.  knife ssh "*:*" "chef-client" -E production
+1.  knife ssh "chef_environment:production" "chef-client"
 1.  Connect to the `haproxy` node in `production` on port 22002 to see the web UI console.
 1.  Connect to the `haproxy` node in `production` on port 80 to see the `demo-app`, refresh a couple of times.
 
