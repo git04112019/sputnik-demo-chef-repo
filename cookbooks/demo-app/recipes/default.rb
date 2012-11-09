@@ -20,7 +20,7 @@
 include_recipe "apache2"
 
 #put the images in the apache directory
-%w{dell.png opscode.png sputnik.png}.each do |image|
+%w{dell.png opscode.png sputnik.png chef.png}.each do |image|
   cookbook_file "/var/www/#{image}" do
     source image
     mode '0644'
