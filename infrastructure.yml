@@ -23,6 +23,7 @@ roles:
 - base:
 - sputnik-base:
 - haproxy:
+- demo-app:
 
 nodes:
 - sputnik-laptop.local:
@@ -32,11 +33,11 @@ nodes:
   - role[base],role[haproxy]
   - -I 10 -f2 ~/.ssh/mray.pem -E sputnik
 - lxc 2:
-  - role[base],recipe[demo-app]
+  - role[base],role[demo-app]
   - -I 10 -f2 ~/.ssh/mray.pem -N lxc-demo-app-{{n}} -E sputnik
 - openstack 1:
   - role[base],role[haproxy]
-  - -I 10 -f2 ~/.ssh/mray.pem -E production
+  - -f 100 -I 9883 -S testing-az2 -G haproxy,default -i ~/.ssh/testing-az2.pem -Z az2 -x ubuntu -E production
 - openstack 2:
-  - role[base],recipe[demo-app]
-  - -I 10 -f2 ~/.ssh/mray.pem -N cloud-demo-app-{{n}} -E production
+  - role[base],role[demo-app]
+  - -f 100 -I 9883 -S testing-az2 -N cloud-demo-app-{{n}} -i ~/.ssh/testing-az2.pem -Z az2 -x ubuntu -E production
