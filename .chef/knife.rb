@@ -34,4 +34,4 @@ knife[:hp_tenant_id]            = ENV['HP_TENANT_ID']
 # Rackspace Cloud
 knife[:rackspace_api_username]  = ENV['RACKSPACE_USERNAME']
 knife[:rackspace_api_key]       = ENV['RACKSPACE_API_KEY']
-
+knife[:rackspace_version]       = 'v2'
