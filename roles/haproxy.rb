@@ -6,6 +6,7 @@ run_list(
 
 override_attributes(
   "haproxy" => {
-    "app_server_role" => "demo-app"
+    "app_server_role" => "demo-app",
+    "member_port" => "80"
   }
   )
