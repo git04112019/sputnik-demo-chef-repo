@@ -6,6 +6,12 @@ This repository contains the roles, environments and data bags for deploying an 
 
 There is also a Spiceweasel (http://bit.ly/spcwsl) manifest documenting all the community cookbooks, roles, data bags and environments required for this demo.
 
+Issues
+======
+For the cloud provider, you may need development versions of Ohai if running on an OpenStack cloud and the trunk release of knife-rackspace if using Rackspace V2.
+
+The `apt` cookbook is currently from https://github.com/mattray/apt/tree/COOK-1875 but should be released shortly.
+
 Usage
 =====
 To see the commands necessary to push all of the files to the Chef server, run the following command:
